@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRADIX | Gestión Académica</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <aside class="menu-lateral">
+
+            <div class="logo">
+                <h1>GRADIX</h1>
+                <p>Gestión académica</p>
+            </div>
+
+            <nav>
+                <a href="#" class="activo" data-seccion="inicio">
+                    Panel principal
+                </a>
+
+                <a href="#" data-seccion="estudiantes">
+                    Estudiantes
+                </a>
+
+                <a href="#" data-seccion="materias">
+                    Materias
+                </a>
+
+                <a href="#" data-seccion="rendimiento">
+                    Rendimiento
+                </a>
+
+                <a href="#" data-seccion="reportes">
+                    Reportes
+                </a>
+            </nav>
+
+            <div class="menu-inferior">
+                <p>Sistema académico</p>
+                <span>Versión 1.0</span>
+            </div>
+
+        </aside>
+
+        <main class="contenido">
+
+            <!-- PANEL PRINCIPAL -->
+
+            <section id="inicio" class="vista">
+
+                <header class="encabezado">
+                    <div>
+                        <h2>Panel principal</h2>
+                        <p>Bienvenido a GRADIX</p>
+                    </div>
+
+                    <div class="usuario">
+                        <span>Administrador</span>
+                    </div>
+                </header>
+
+                <section class="bienvenida">
+                    <h2>Gestión del rendimiento académico</h2>
+
+                    <p>
+                        Administra estudiantes, consulta calificaciones
+                        y supervisa el desempeño académico.
+                    </p>
+                </section>
+
+                <section class="estadisticas">
+
+                    <article class="tarjeta">
+                        <p>Estudiantes registrados</p>
+                        <h3>--</h3>
+                    </article>
+
+                    <article class="tarjeta">
+                        <p>Promedio general</p>
+                        <h3>--</h3>
+                    </article>
+
+                    <article class="tarjeta">
+                        <p>Materias registradas</p>
+                        <h3>--</h3>
+                    </article>
+
+                </section>
+
+                <section class="seccion-principal">
+
+                    <h2>Accesos principales</h2>
+
+                    <div class="accesos">
+
+                        <article class="acceso" data-ir-a="estudiantes">
+                            <h3>Estudiantes</h3>
+                            <p>Registra y consulta estudiantes.</p>
+                        </article>
+
+                        <article class="acceso" data-ir-a="materias">
+                            <h3>Materias</h3>
+                            <p>Administra materias y calificaciones.</p>
+                        </article>
+
+                        <article class="acceso" data-ir-a="rendimiento">
+                            <h3>Rendimiento académico</h3>
+                            <p>Consulta promedios y resultados.</p>
+                        </article>
+
+                        <article class="acceso" data-ir-a="reportes">
+                            <h3>Reportes</h3>
+                            <p>Genera reportes y alertas académicas.</p>
+                        </article>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+            <!-- ESTUDIANTES -->
+
+            <section id="estudiantes" class="vista" hidden>
+
+                <header class="encabezado">
+                    <div>
+                        <h2>Estudiantes</h2>
+                        <p>Registro y consulta de estudiantes</p>
+                    </div>
+                </header>
+
+                <!-- FORMULARIO DE REGISTRO -->
+
+                <section class="seccion-principal">
+
+                    <h2>Registrar estudiante</h2>
+
+                    <form id="formulario-estudiante">
+
+                        <div class="campo-formulario">
+                            <label for="nombre-estudiante">
+                                Nombre completo
+                            </label>
+
+                            <input
+                                type="text"
+                                id="nombre-estudiante"
+                                placeholder="Nombre del estudiante"
+                                required
+                            >
+                        </div>
+
+                        <div class="encabezado-materias">
+
+                            <h3>Materias y calificaciones</h3>
+
+                            <button type="button" id="agregar-materia">
+                                + Agregar materia
+                            </button>
+
+                        </div>
+
+                        <div id="lista-materias"></div>
+
+                        <button type="submit" id="registrar-estudiante">
+                            Registrar estudiante
+                        </button>
+
+                    </form>
+
+                </section>
+
+                <!-- DIRECTORIO ACADÉMICO -->
+
+                <section class="seccion-principal">
+
+                    <h2>Directorio académico</h2>
+
+                    <div id="tabla-estudiantes">
+                        Cargando estudiantes...
+                    </div>
+
+                </section>
+
+            </section>
+
+            <!-- MATERIAS -->
+
+            <section id="materias" class="vista" hidden>
+
+                <header class="encabezado">
+                    <div>
+                        <h2>Materias</h2>
+                        <p>Consulta de materias y calificaciones</p>
+                    </div>
+                </header>
+
+                <section class="seccion-principal">
+
+                    <h2>Historial académico</h2>
+
+                    <div class="campo-formulario">
+
+                        <label for="seleccionar-estudiante">
+                            Seleccionar estudiante
+                        </label>
+
+                        <select id="seleccionar-estudiante">
+                            <option value="">
+                                Cargando estudiantes...
+                            </option>
+                        </select>
+
+                    </div>
+
+                    <div id="informacion-estudiante">
+                        Selecciona un estudiante para consultar sus materias.
+                    </div>
+
+                    <div id="tabla-materias"></div>
+
+                </section>
+
+            </section>
+
+            <!-- RENDIMIENTO -->
+
+            <section id="rendimiento" class="vista" hidden>
+
+                <header class="encabezado">
+                    <div>
+                        <h2>Rendimiento académico</h2>
+                        <p>Análisis del desempeño de los estudiantes</p>
+                    </div>
+                </header>
+
+                <!-- INDICADORES GENERALES -->
+
+                <section class="estadisticas rendimiento-estadisticas">
+
+                    <article class="tarjeta">
+                        <p>Promedio académico general</p>
+                        <h3 id="rendimiento-promedio">--</h3>
+                    </article>
+
+                    <article class="tarjeta">
+                        <p>Materias aprobadas</p>
+                        <h3 id="rendimiento-aprobadas">--</h3>
+                    </article>
+
+                    <article class="tarjeta">
+                        <p>Materias reprobadas</p>
+                        <h3 id="rendimiento-reprobadas">--</h3>
+                    </article>
+
+                </section>
+
+                <!-- ANÁLISIS POR ESTUDIANTE -->
+
+                <section class="seccion-principal">
+
+                    <h2>Desempeño por estudiante</h2>
+
+                    <div class="campo-formulario">
+
+                        <label for="rendimiento-estudiante">
+                            Seleccionar estudiante
+                        </label>
+
+                        <select id="rendimiento-estudiante">
+                            <option value="">
+                                Selecciona un estudiante
+                            </option>
+                        </select>
+
+                    </div>
+
+                    <div id="resumen-rendimiento">
+                        Selecciona un estudiante para consultar
+                        su rendimiento académico.
+                    </div>
+
+                </section>
+
+                <!-- SEGUIMIENTO ACADÉMICO -->
+
+                <section class="seccion-principal">
+
+                    <h2>Seguimiento académico</h2>
+
+                    <div id="alertas-rendimiento">
+                        Cargando información académica...
+                    </div>
+
+                </section>
+
+            </section>
+
+
+<!-- REPORTES -->
+
+<section id="reportes" class="vista" hidden>
+
+    <header class="encabezado">
+        <div>
+            <h2>Reportes académicos</h2>
+            <p>Generación de informes institucionales</p>
+        </div>
+    </header>
+
+    <section class="seccion-principal">
+
+        <h2>Generar reporte</h2>
+
+        <div class="campo-formulario">
+            <label for="tipo-reporte">
+                Tipo de reporte
+            </label>
+
+            <select id="tipo-reporte">
+                <option value="individual">
+                    Reporte individual
+                </option>
+                <option value="general">
+                    Reporte general
+                </option>
+            </select>
+        </div>
+
+        <div class="campo-formulario" id="campo-estudiante-reporte">
+            <label for="estudiante-reporte">
+                Seleccionar estudiante
+            </label>
+
+            <select id="estudiante-reporte">
+                <option value="">
+                    Selecciona un estudiante
+                </option>
+            </select>
+        </div>
+
+        <button type="button" id="generar-reporte">
+            Generar reporte
+        </button>
+
+    </section>
+
+    <section class="seccion-principal">
+
+        <h2>Vista previa del reporte</h2>
+
+        <div id="vista-previa-reporte">
+            Selecciona el tipo de reporte y presiona
+            "Generar reporte" para visualizarlo.
+        </div>
+
+        <button type="button" id="imprimir-reporte" hidden>
+            Imprimir / Guardar como PDF
+        </button>
+
+    </section>
+
+</section>
+
+
+        </main>
+
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>

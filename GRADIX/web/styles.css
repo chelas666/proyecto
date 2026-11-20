@@ -1,0 +1,857 @@
+/* CONFIGURACIÓN GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #F1F3F6;
+    color: #263445;
+}
+
+.contenedor {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* MENÚ LATERAL */
+.menu-lateral {
+    width: 250px;
+    background-color: #003B71;
+    color: white;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    padding-bottom: 35px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.logo h1 {
+    font-size: 29px;
+    letter-spacing: 2px;
+}
+
+.logo p {
+    font-size: 12px;
+    color: #D6E3F0;
+    margin-top: 5px;
+}
+
+.menu-lateral nav {
+    margin-top: 35px;
+}
+
+.menu-lateral nav a {
+    display: block;
+    color: #D6E3F0;
+    text-decoration: none;
+    padding: 14px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.menu-lateral nav a:hover,
+.menu-lateral nav a.activo {
+    background-color: #FFFFFF;
+    color: #003B71;
+}
+
+.menu-inferior {
+    margin-top: auto;
+    font-size: 13px;
+    color: #D6E3F0;
+}
+
+.menu-inferior span {
+    font-size: 11px;
+}
+
+/* CONTENIDO PRINCIPAL */
+.contenido {
+    flex: 1;
+    min-width: 0;
+    padding: 35px;
+}
+
+/* VISTAS */
+.vista[hidden] {
+    display: none;
+}
+
+/* ENCABEZADO */
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.encabezado h2 {
+    font-size: 25px;
+    color: #003B71;
+}
+
+.encabezado p {
+    color: #7B8794;
+    margin-top: 5px;
+}
+
+.usuario {
+    background-color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 1px solid #E1E5EA;
+    font-size: 14px;
+}
+
+/* BIENVENIDA */
+.bienvenida {
+    background: linear-gradient(110deg, #003B71, #17629B);
+    color: white;
+    padding: 35px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.bienvenida h2 {
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.bienvenida p {
+    color: #E0EAF4;
+    line-height: 1.6;
+}
+
+/* ESTADÍSTICAS */
+.estadisticas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.tarjeta {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #E5E8ED;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.03);
+}
+
+.tarjeta p {
+    color: #7B8794;
+    font-size: 14px;
+}
+
+.tarjeta h3 {
+    color: #003B71;
+    font-size: 30px;
+    margin-top: 12px;
+}
+
+/* ACCESOS PRINCIPALES */
+.seccion-principal h2 {
+    color: #003B71;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.accesos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.acceso {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #E5E8ED;
+    border-left: 4px solid #C8102E;
+    transition: 0.3s;
+}
+
+.acceso:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+}
+
+.acceso h3 {
+    color: #003B71;
+    margin-bottom: 10px;
+}
+
+.acceso p {
+    color: #7B8794;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* TABLAS ACADÉMICAS */
+#tabla-estudiantes,
+#tabla-materias {
+    background-color: white;
+    border: 1px solid #E5E8ED;
+    border-radius: 10px;
+    overflow-x: auto;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.03);
+}
+
+.tabla-academica {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    min-width: 650px;
+}
+
+.tabla-academica thead {
+    background-color: #003B71;
+    color: white;
+}
+
+.tabla-academica th {
+    padding: 17px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.tabla-academica td {
+    padding: 17px 20px;
+    border-bottom: 1px solid #E9EDF2;
+    font-size: 14px;
+}
+
+.tabla-academica tbody tr:hover {
+    background-color: #F5F8FC;
+}
+
+.tabla-academica tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* HISTORIAL ACADÉMICO */
+#seleccionar-estudiante {
+    min-width: 240px;
+    padding: 11px 14px;
+    border: 1px solid #D5DCE5;
+    border-radius: 7px;
+    background-color: white;
+    color: #263445;
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#seleccionar-estudiante:focus {
+    border-color: #003B71;
+    box-shadow: 0 0 0 3px rgba(0,59,113,0.10);
+}
+
+#informacion-estudiante {
+    background-color: white;
+    border: 1px solid #E5E8ED;
+    border-left: 4px solid #C8102E;
+    border-radius: 9px;
+    padding: 18px 20px;
+    margin: 15px 0 20px;
+    color: #003B71;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.6;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.03);
+}
+
+/* FORMULARIO DE REGISTRO */
+.campo-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 20px 0;
+}
+
+.campo-formulario label {
+    font-weight: 600;
+    color: #263445;
+}
+
+.campo-formulario input,
+.campo-materia input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #D5DCE5;
+    border-radius: 7px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.campo-formulario input:focus,
+.campo-materia input:focus {
+    border-color: #003B71;
+}
+
+.encabezado-materias {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin: 25px 0 15px;
+}
+
+.encabezado-materias h3 {
+    color: #263445;
+    font-size: 17px;
+}
+
+#agregar-materia,
+#registrar-estudiante {
+    border: none;
+    border-radius: 7px;
+    padding: 11px 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#agregar-materia {
+    background: #E8EEF5;
+    color: #003B71;
+}
+
+#agregar-materia:hover {
+    background: #D8E3EF;
+}
+
+#registrar-estudiante {
+    background: #003B71;
+    color: white;
+    margin-top: 20px;
+}
+
+#registrar-estudiante:hover {
+    background: #002B52;
+}
+
+#registrar-estudiante:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#lista-materias {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.tarjeta-materia {
+    background: #F7F9FC;
+    border: 1px solid #DCE3EB;
+    border-left: 4px solid #C8102E;
+    border-radius: 8px;
+    padding: 18px;
+}
+
+.encabezado-tarjeta-materia {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.encabezado-tarjeta-materia h4 {
+    color: #003B71;
+}
+
+.campos-calificaciones {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.campo-materia {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.campo-materia label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #526174;
+}
+
+/* DISEÑO RESPONSIVO */
+@media (max-width: 850px) {
+    .menu-lateral {
+        width: 200px;
+    }
+
+    .estadisticas {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .contenedor {
+        flex-direction: column;
+    }
+
+    .menu-lateral {
+        width: 100%;
+    }
+
+    .menu-lateral nav {
+        margin-top: 20px;
+    }
+
+    .contenido {
+        padding: 20px;
+    }
+
+    .accesos {
+        grid-template-columns: 1fr;
+    }
+
+    .encabezado {
+        align-items: flex-start;
+        gap: 15px;
+        flex-direction: column;
+    }
+
+    .encabezado-materias {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .campos-calificaciones {
+        grid-template-columns: 1fr;
+    }
+
+    #seleccionar-estudiante {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+/* ==========================================
+   MÓDULO DE RENDIMIENTO ACADÉMICO
+========================================== */
+
+/* INDICADORES GENERALES */
+
+.rendimiento-estadisticas {
+    margin-bottom: 35px;
+}
+
+.rendimiento-estadisticas .tarjeta {
+    border-top: 4px solid #003B71;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.rendimiento-estadisticas .tarjeta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 59, 113, 0.08);
+}
+
+.rendimiento-estadisticas .tarjeta:nth-child(2) {
+    border-top-color: #23845B;
+}
+
+.rendimiento-estadisticas .tarjeta:nth-child(3) {
+    border-top-color: #C8102E;
+}
+
+/* SECCIONES DE RENDIMIENTO */
+
+#rendimiento .seccion-principal {
+    background: white;
+    padding: 25px;
+    border: 1px solid #E5E8ED;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.03);
+}
+
+/* SELECTOR DE ESTUDIANTES */
+
+#rendimiento-estudiante {
+    width: 100%;
+    max-width: 450px;
+    padding: 12px 15px;
+    border: 1px solid #D5DCE5;
+    border-radius: 7px;
+    background: #FFFFFF;
+    color: #263445;
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+}
+
+#rendimiento-estudiante:focus {
+    border-color: #003B71;
+    box-shadow: 0 0 0 3px rgba(0,59,113,0.10);
+}
+
+/* RESUMEN INDIVIDUAL */
+
+#resumen-rendimiento {
+    padding: 20px;
+    background: #F7F9FC;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    color: #526174;
+    line-height: 1.7;
+}
+
+/* SEGUIMIENTO ACADÉMICO */
+
+#alertas-rendimiento {
+    padding: 20px;
+    background: #F7F9FC;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    color: #526174;
+    line-height: 1.7;
+}
+
+/* ADAPTACIÓN A PANTALLAS PEQUEÑAS */
+
+@media (max-width: 600px) {
+    #rendimiento .seccion-principal {
+        padding: 18px;
+    }
+
+    #rendimiento-estudiante {
+        max-width: 100%;
+    }
+}
+
+
+/* ==========================================
+   MÓDULO DE REPORTES ACADÉMICOS
+========================================== */
+
+/* CONTENEDORES */
+
+#reportes .seccion-principal {
+    background: white;
+    padding: 25px;
+    border: 1px solid #E5E8ED;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.03);
+}
+
+/* SELECTORES */
+
+#tipo-reporte,
+#estudiante-reporte {
+    width: 100%;
+    max-width: 450px;
+    padding: 12px 15px;
+    border: 1px solid #D5DCE5;
+    border-radius: 7px;
+    background: white;
+    color: #263445;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+}
+
+#tipo-reporte:focus,
+#estudiante-reporte:focus {
+    border-color: #003B71;
+    box-shadow: 0 0 0 3px rgba(0,59,113,0.10);
+}
+
+/* BOTONES */
+
+#generar-reporte,
+#imprimir-reporte {
+    background: #003B71;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 12px 20px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#generar-reporte:hover,
+#imprimir-reporte:hover {
+    background: #002B52;
+}
+
+#imprimir-reporte {
+    margin-top: 20px;
+    background: #C8102E;
+}
+
+#imprimir-reporte:hover {
+    background: #A50D25;
+}
+
+#imprimir-reporte[hidden] {
+    display: none;
+}
+
+/* VISTA PREVIA */
+
+#vista-previa-reporte {
+    background: #F7F9FC;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 25px;
+    color: #526174;
+    overflow-x: auto;
+}
+
+/* DOCUMENTO INSTITUCIONAL */
+
+.documento-reporte {
+    background: white;
+    color: #263445;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 35px;
+    border: 1px solid #E1E5EA;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+}
+
+/* ENCABEZADO DEL DOCUMENTO */
+
+.reporte-encabezado {
+    border-bottom: 3px solid #C8102E;
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+}
+
+.reporte-encabezado h2 {
+    color: #003B71;
+    font-size: 27px;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.reporte-encabezado p {
+    color: #526174;
+    font-size: 13px;
+}
+
+/* TÍTULO Y DATOS */
+
+.reporte-titulo {
+    text-align: center;
+    color: #003B71;
+    font-size: 19px;
+    margin-bottom: 25px;
+}
+
+.reporte-datos {
+    margin-bottom: 25px;
+    line-height: 1.9;
+    font-size: 14px;
+}
+
+.reporte-datos strong {
+    color: #003B71;
+}
+
+/* TABLA DE CALIFICACIONES */
+
+.reporte-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 13px;
+}
+
+.reporte-tabla th {
+    background: #003B71;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+.reporte-tabla td {
+    padding: 12px;
+    border-bottom: 1px solid #E5E8ED;
+}
+
+.reporte-tabla tbody tr:nth-child(even) {
+    background: #F7F9FC;
+}
+
+/* OBSERVACIONES */
+
+.reporte-observaciones {
+    background: #F7F9FC;
+    border-left: 4px solid #C8102E;
+    padding: 15px;
+    margin-top: 25px;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* FIRMA */
+
+.reporte-firma {
+    margin-top: 65px;
+    text-align: center;
+}
+
+.reporte-firma .linea-firma {
+    width: 230px;
+    border-top: 1px solid #263445;
+    margin: 0 auto 10px;
+}
+
+.reporte-firma p {
+    font-size: 13px;
+    color: #526174;
+}
+
+/* IMPRESIÓN */
+
+@media print {
+
+    body {
+        background: white;
+    }
+
+    body * {
+        visibility: hidden;
+    }
+
+    #vista-previa-reporte,
+    #vista-previa-reporte * {
+        visibility: visible;
+    }
+
+    #vista-previa-reporte {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        border: none;
+        overflow: visible;
+    }
+
+    .documento-reporte {
+        max-width: none;
+        padding: 15px;
+        border: none;
+        box-shadow: none;
+    }
+
+    .reporte-tabla th {
+        background: #003B71 !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .reporte-observaciones {
+        break-inside: avoid;
+    }
+
+    .reporte-firma {
+        break-inside: avoid;
+    }
+
+    @page {
+        size: A4;
+        margin: 15mm;
+    }
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 600px) {
+
+    #reportes .seccion-principal {
+        padding: 18px;
+    }
+
+    #vista-previa-reporte {
+        padding: 10px;
+    }
+
+    .documento-reporte {
+        padding: 20px;
+    }
+
+    .reporte-tabla {
+        font-size: 11px;
+    }
+
+    .reporte-tabla th,
+    .reporte-tabla td {
+        padding: 8px;
+    }
+}
+
+
+/* ==========================================
+   AJUSTES DE IMPRESIÓN DE REPORTES
+========================================== */
+
+@media print {
+
+    .documento-reporte {
+        padding: 0;
+        font-size: 12px;
+    }
+
+    .reporte-encabezado {
+        margin-bottom: 15px;
+        padding-bottom: 12px;
+    }
+
+    .reporte-titulo {
+        margin-bottom: 15px;
+    }
+
+    .reporte-datos {
+        margin-bottom: 12px;
+        line-height: 1.5;
+    }
+
+    .reporte-tabla {
+        margin: 12px 0;
+        font-size: 11px;
+    }
+
+    .reporte-tabla th,
+    .reporte-tabla td {
+        padding: 7px;
+    }
+
+    .reporte-observaciones {
+        margin-top: 15px;
+        padding: 10px;
+    }
+
+    .reporte-firma {
+        margin-top: 25px;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}

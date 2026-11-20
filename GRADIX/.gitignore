@@ -1,0 +1,10 @@
+# Archivos compilados de Java
+*.class
+
+# Archivos temporales
+*.tmp
+*.log
+
+# Configuración del editor
+.vscode/
+.idea/
